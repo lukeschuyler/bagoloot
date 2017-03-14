@@ -1,30 +1,32 @@
 const { assert } = require('chai')
-const { addToy, removeToy } = require('../lib/lootbag.js')
+const { addToy, addTest } = require('../lib/addToy.js')
+const { removeToy } = require('../lib/removeToy.js')
 
 describe('lootbag', () => {
+
 	describe('addToy', () => {
 
 		it('should add two arguments to a list toys/names', () => {
-			let list = []
-			addToy('stapler', 'Milton', list)	
-			assert.deepEqual([{toy: 'stapler', kid: 'Milton'}], list)
-		});
-
-		it('should throw error if anything other than three arguments are passed', () => {
-			assert.throws(() => addtoy('hello'), Error)
+			return addTest()
+				.then((kid) => {
+					assert.isObject(kid)
+				})
 		});
 
 	});
 
-	describe('removeToy', () => {
-		it('should remove specified item from list', () => {
-			let list = [ {kid: 'Milton', toy: 'stapler'} ]
-			removeToy( 'Milton', 'stapler', list )
-			assert.deepEqual([], list)
-		});
+	// describe('removeToy', () => {
 
-		it('should throw error if anything other than three arguments are passed', () => {
-			assert.throws(() => removeToy('hello'), Error)
-		});
-	});
+	// 	it('should remove specified item from list', () => {
+	// 		let list = [ { toy: 'stapler', kid: 'Milton' } ]
+	// 		removeToy( 'Milton', 'stapler', list )
+	// 		assert.deepEqual([], list)
+	// 	});
+
+	// 	it('should throw error if anything other than three arguments are passed', () => {
+	// 		assert.throws(() => removeToy('hello'), Error)
+	// 	});
+
+	// });
+
 });
