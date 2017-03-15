@@ -2,6 +2,8 @@ const { assert, expect } = require('chai')
 const { addToy, addTest } = require('../lib/addToy.js')
 const { removeToy } = require('../lib/removeToy.js')
 const { listChildren } = require('../lib/listChildren.js')
+const { listToys } = require('../lib/listToys.js')
+
 
 describe('lootbag', () => {
 
@@ -54,10 +56,26 @@ describe('lootbag', () => {
 					assert.isArray(arr)
 			})
 		})
-		it('should return an array of Objects', () => {
+		it('should return an array of Strings', () => {
 			return listChildren()
 				.then((arr) => {
-					assert.isObject(arr[0])
+					assert.isString(arr[0])
+			})
+		})
+
+	})
+
+	describe('listToys', () => {
+		it('should return an array', () => {
+			return listToys()
+				.then((arr) => {
+					assert.isArray(arr)
+			})
+		})
+		it('should return an array of Objects', () => {
+			return listToys()
+				.then((arr) => {
+					assert.isString(arr[0])
 			})
 		})
 
