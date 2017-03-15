@@ -4,7 +4,7 @@ const { removeToy } = require('../lib/removeToy.js')
 const { listChildren } = require('../lib/listChildren.js')
 const { listToys } = require('../lib/listToys.js')
 const { setDelivered } = require('../lib/setDelivered.js')
-
+const { gimmeTheLoot } = require('../lib/lootbag.js')
 
 describe('lootbag', () => {
 
@@ -88,6 +88,10 @@ describe('lootbag', () => {
 	});
 
 	describe('gimmeTheLoot', () => {
-		
-	})
+		it('should fire addToy if "add" is the first argument', () => {		
+			assert.doesNotThrow( () => { gimmeTheLoot('add', 'Bike', 'Suzie') } )
+			assert.throws(() => { gimmeTheLoot('add', 'Bike') })
+		});
+
+	});
 });
