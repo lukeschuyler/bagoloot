@@ -7,26 +7,19 @@ describe('lootbag', () => {
 	describe('addToy', () => {
 
 		it('should add two arguments to a list toys/names', () => {
-			return addTest()
-				.then((kid) => {
-					assert.isObject(kid)
+			let kid = 'Johnny'
+			new Promise((resolve, reject) => {
+				resolve(addToy('Scooter', kid))
+			}).then(() => {
+				return addTest(kid)
+					.then((kid) => {
+						assert.isObject(kid)
+						console.log(kid)
 				})
+				.catch(() => console.log('catch'))
+			})
 		});
 
 	});
-
-	// describe('removeToy', () => {
-
-	// 	it('should remove specified item from list', () => {
-	// 		let list = [ { toy: 'stapler', kid: 'Milton' } ]
-	// 		removeToy( 'Milton', 'stapler', list )
-	// 		assert.deepEqual([], list)
-	// 	});
-
-	// 	it('should throw error if anything other than three arguments are passed', () => {
-	// 		assert.throws(() => removeToy('hello'), Error)
-	// 	});
-
-	// });
 
 });
