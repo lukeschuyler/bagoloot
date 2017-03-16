@@ -18,7 +18,6 @@ describe('lootbag', () => {
 		// 		addTest(kid)
 		// 			.then((kid_data) => {
 		// 				assert.isObject(kid_data)
-		// 				console.log(kid_data)
 		// 		})
 		// 		.catch(() => console.log('catch'))
 		// 	})
@@ -47,13 +46,13 @@ describe('lootbag', () => {
 
 	describe('listToys', () => {
 		it('should return an array', () => {
-			listToys()
+			listToys('Suzie')
 				.then((arr) => {
 					assert.isArray(arr)
 			})
 		})
 		it('should return an array of Strings', () => {
-			listToys()
+			listToys('Suzie')
 				.then((arr) => {
 					assert.isString(arr[0])
 			})
@@ -89,9 +88,17 @@ describe('lootbag', () => {
 
 	describe('gimmeTheLoot', () => {
 		it('should fire addToy if "add" is the first argument', () => {		
-			assert.doesNotThrow( () => { gimmeTheLoot('add', 'Bike', 'Suzie') } )
+			assert.doesNotThrow( () => { gimmeTheLoot('add', 'Bike', 'Suzie') })
 			assert.throws(() => { gimmeTheLoot('add', 'Bike') })
 		});
 
+		it('should fire removeToy if "remove" is first argument', () => {
+			assert.doesNotThrow( () => { gimmeTheLoot('remove', 'Suzie', 'Bike') })
+			assert.throws(() => { gimmeTheLoot('remove', 'Bike') })
+		})
+
+		it('should fire listChildren if "ls" is first argument and there is no second argument', () => {
+			
+		})
 	});
 });
