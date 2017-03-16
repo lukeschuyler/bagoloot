@@ -60,8 +60,8 @@ describe('lootbag', () => {
 	})
 
 	describe('setDelivered', () => {
-		it('should error if two parameters are not passed', () => {		
-			assert.throws( () => { setDelivered('gi joe') } )
+		it('should error if one parameter is not passed', () => {		
+			assert.throws( () => { setDelivered() } )
 		})
 	});
 
